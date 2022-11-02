@@ -1,5 +1,7 @@
 VSCode安装Auto Import插件
 
+
+
 npm install --save @nestjs/swagger swagger-ui-express
 https://www.makeuseof.com/nestjs-apis-swagger-documentation/#:~:text=Install%20Swagger%20and%20its%20Express%20UI%20library%20by%20running%3A
 
@@ -17,6 +19,11 @@ https://www.bilibili.com/video/BV1U441117xK?t=404.6
 Author message:
 
 Mongoose publishes its own types, so you do not need to install this package.
+
+mongoose.connect('mongodb://127.0.0.1/nest-blog-api')
+参数已经不需要加了（成为了默认）官网说明：https://mongoosejs.com/docs/migrating_to_6.html#no-more-deprecation-warning-options
+>useNewUrlParser, useUnifiedTopology, useFindAndModify, and useCreateIndex are no longer supported options. Mongoose 6 always behaves as if useNewUrlParser, useUnifiedTopology, and useCreateIndex are true, and useFindAndModify is false. Please remove these options from your code.
+
 
 mongodb://localhost/nest-blog-api  这个需要自己在本地启动服务吗
 2019-10-23 19:42
@@ -59,5 +66,43 @@ IsNotEmpty这里最好手动import { IsNotEmpty } from 'class-validator';
 还有一个isNotEmpty不要用错了
 
 p9
+解耦
 
+报错
 npm install --save nestjs-typegoose
+
+npm ERR! code ERESOLVE
+npm ERR! ERESOLVE unable to resolve dependency tree
+npm ERR!
+npm ERR! While resolving: nest-blog-api@0.0.1
+npm ERR! Found: @nestjs/common@9.1.6
+npm ERR! node_modules/@nestjs/common
+npm ERR!   @nestjs/common@"^9.0.0" from the root project
+npm ERR!
+npm ERR! Could not resolve dependency:
+npm ERR! peer @nestjs/common@"^6.10.1 || ^7.0.0" from nestjs-typegoose@7.1.38
+npm ERR! node_modules/nestjs-typegoose
+npm ERR!   nestjs-typegoose@"*" from the root project
+npm ERR!
+npm ERR! Fix the upstream dependency conflict, or retry
+npm ERR! this command with --force, or --legacy-peer-deps
+npm ERR! to accept an incorrect (and potentially broken) dependency resolution.
+npm ERR!
+npm ERR! See C:\Program Files\nodejs\eresolve-report.txt for a full report.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     C:\Program Files\nodejs\_logs\2022-11-02T03_26_10_776Z-debug-0.log
+
+nestjs-typegoose依赖的包的版本太老了
+
+换kindagoose
+
+
+
+入口模块：app
+
+:ModelType<PostSchema> 方便显示后来使用其函数的提示
+
+
+p10
+
