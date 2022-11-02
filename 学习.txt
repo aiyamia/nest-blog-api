@@ -1,0 +1,63 @@
+VSCode安装Auto Import插件
+
+npm install --save @nestjs/swagger swagger-ui-express
+https://www.makeuseof.com/nestjs-apis-swagger-documentation/#:~:text=Install%20Swagger%20and%20its%20Express%20UI%20library%20by%20running%3A
+
+
+p6之前（不含） 搭接口架构
+
+npm install --save @typegoose/typegoose # install typegoose itself
+
+mongoose版本参考https://typegoose.github.io/typegoose/docs/guides/mongoose-compatibility
+npm install --save mongoose@~6.6.0
+
+https://www.bilibili.com/video/BV1U441117xK?t=404.6
+@type/mongoose已经不需要安装了
+> This package has been deprecated
+Author message:
+
+Mongoose publishes its own types, so you do not need to install this package.
+
+mongodb://localhost/nest-blog-api  这个需要自己在本地启动服务吗
+2019-10-23 19:42
+回复
+
+全栈之巅
+当然，保持数据库一直启动着
+2019-10-24 11:39
+回复
+
+菜菜牛
+需要启动本地服务
+2019-10-24 07:41
+回复
+
+
+connection.js:824
+  const serverSelectionError = new ServerSelectionError();
+                               ^
+MongooseServerSelectionError: connect ECONNREFUSED ::1:27017
+
+把mongoose.connect('mongodb://localhost/nest-blog-api')改为mongoose.connect('mongodb://127.0.0.1/nest-blog-api')
+
+
+body的名字尽量特定：createPostDto
+
+p8之前（不含）完成帖子的CURD
+
+p8在dto中写验证
+
+确保标题必填
+main.ts中使用
+
+https://docs.nestjs.com/pipes
+类似中间件
+
+npm i --save class-validator class-transformer
+
+IsNotEmpty这里最好手动import { IsNotEmpty } from 'class-validator';
+还有一个isNotEmpty不要用错了
+
+p9
+
+npm install --save nestjs-typegoose
